@@ -6,7 +6,7 @@ $(document).ready(function(){
 	var slider = (function(){
 
 		var flag = true,
-			timerDuration = 5000,
+			timerDuration = 7000,
 			timer = 0;
 
 		return {
