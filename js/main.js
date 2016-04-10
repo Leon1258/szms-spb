@@ -170,4 +170,59 @@ $(document).ready(function(){
 	}());
 
 	slider.init();
+
+// Высота блока новостей
+	var usefulListHeight = $('#section-4 .useful-list').height();
+	$('#section-4 .news-list').height(usefulListHeight);
+
+// Параллакс
+	function parallaxScroll(section) {
+		var topBorder = section.offset().top,
+			bottomBorder = topBorder + section.outerHeight(),
+			fromTop = $(window).scrollTop();
+
+		if(fromTop > topBorder-$(window).height() && fromTop < bottomBorder) {
+			section.css('background-position', '100% ' + fromTop/15 + '%');
+		}
+	}
+
+	$(window).on('scroll', function() {
+		parallaxScroll($('#section-3'));
+	});
+
+// Обрезание строк
+	function sliceString(element, count, light) {
+		var text = element.html(),
+			newText;
+
+		if(text.length > count) {
+			var lastBackspace = text.substr(0, (count -3)).lastIndexOf(' ');
+
+			newText = text.slice(0, lastBackspace) + '...'; //Дописать проверку на точку и запятую на конце строки
+
+			if(light) {
+				var divider = newText.length - 7,
+					firstPart = newText.substr(0, divider),
+					lightPart = newText.substr(divider, newText.length),
+					lightText = '',
+					colorArray = ['rgba(77,77,77,.9)', 'rgba(77,77,77,.8)', 'rgba(77,77,77,.7)', 'rgba(77,77,77,.6)', 'rgba(77,77,77,.5)', 'rgba(77,77,77,.4)', 'rgba(77,77,77,.3)'];
+
+				for(var i = 0; i < 7; i++) {
+					lightText += '<span style="color: ' + colorArray[i] + ';">' + lightPart.substr(i, 1) + '</span>';
+				}
+
+				newText = firstPart + lightText;
+			}
+
+			element.html(newText);
+		}
+	}
+
+	$('#section-3 .describe-article').each(function(i) {
+		var $this = $(this);
+
+		sliceString($this, 140, true);
+	});
+
+	
 });
