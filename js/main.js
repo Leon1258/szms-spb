@@ -173,21 +173,22 @@ $(document).ready(function(){
 
 // Высота блока новостей
 	var usefulListHeight = $('#section-4 .useful-list').height();
-	$('#section-4 .news-list').height(usefulListHeight);
+	$('#section-4 .news-list').height(usefulListHeight - 13);
 
 // Параллакс
-	function parallaxScroll(section) {
+	function parallaxScroll(section, posX, speed) {
 		var topBorder = section.offset().top,
 			bottomBorder = topBorder + section.outerHeight(),
 			fromTop = $(window).scrollTop();
 
 		if(fromTop > topBorder-$(window).height() && fromTop < bottomBorder) {
-			section.css('background-position', '100% ' + fromTop/15 + '%');
+			section.css('background-position', posX + '% ' + fromTop/speed + '%');
 		}
 	}
 
 	$(window).on('scroll', function() {
-		parallaxScroll($('#section-3'));
+		parallaxScroll($('#section-3'), 100, 10);
+		parallaxScroll($('#section-4'), 1, 50);
 	});
 
 // Обрезание строк
@@ -218,10 +219,10 @@ $(document).ready(function(){
 		}
 	}
 
-	$('#section-3 .describe-article').each(function(i) {
+	$('.article-describe').each(function(i) {
 		var $this = $(this);
 
-		sliceString($this, 140, true);
+		sliceString($this, 90, false);
 	});
 
 	

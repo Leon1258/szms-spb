@@ -1,10 +1,20 @@
 @-webkit-keyframes bigerScale {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
   to {
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
   }
 }
 @keyframes bigerScale {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
   to {
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
@@ -1491,6 +1501,157 @@ h3 {
   opacity: 1;
 }
 
+.article-preview {
+  display: block;
+  padding: 0 10px;
+  position: relative;
+}
+
+.article-preview:after {
+  content: '';
+  width: 85%;
+  height: 90%;
+  border: 1px solid #fff;
+  position: absolute;
+  top: 5%;
+  left: 7.5%;
+  z-index: 2;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.article-preview:hover .article-title {
+  position: relative;
+  width: auto;
+  padding: 0;
+}
+
+.article-preview:hover:after,
+.article-preview:hover .article-describe,
+.article-preview:hover .article-info {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.article-preview:hover .img-wrap:after {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.article-preview:hover .img-wrap img {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.article-preview .img-wrap {
+  position: relative;
+  z-index: 1;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.article-preview .img-wrap:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;
+}
+
+.article-preview .img-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.article-preview .article-caption {
+  padding: 0 9%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 2;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.article-preview .article-title {
+  text-decoration: none;
+  width: 100%;
+  padding: 0 9%;
+  color: #fff;
+  font-size: 2em;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.article-preview .article-describe {
+  color: #fff;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.article-preview .article-info {
+  font-size: .8em;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  text-align: justify;
+  -moz-text-align-last: justify;
+  text-align-last: justify;
+  position: absolute;
+  left: 0;
+  bottom: 7%;
+  z-index: 2;
+  padding: 0 9%;
+  width: 100%;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.article-preview .article-info li {
+  list-style: none;
+  display: inline-block;
+}
+
 header .header-top {
   background: #343434;
   padding: 10px 0;
@@ -1624,7 +1785,7 @@ header .header-bottom .container nav ul li {
   position: relative;
 }
 
-#main-slider .slider-list-wrap .slider-list .slider-item.active img {
+#main-slider .slider-list-wrap .slider-list .slider-item.active .img-wrap img {
   -webkit-animation: bigerScale 7s linear both;
   animation: bigerScale 7s linear both;
 }
@@ -1634,6 +1795,7 @@ header .header-bottom .container nav ul li {
 }
 
 #main-slider .slider-list-wrap .slider-list .slider-item .img-wrap {
+  width: 100%;
   position: relative;
   overflow: hidden;
 }
@@ -1654,7 +1816,9 @@ header .header-bottom .container nav ul li {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 700px;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 
 #main-slider .slider-list-wrap .slider-list .slider-item .slide-describe {
@@ -1858,61 +2022,12 @@ header .header-bottom .container nav ul li {
   margin-bottom: 100px;
 }
 
-#section-3 .container .prev-article {
-  padding: 0 35px;
-}
-
-#section-3 .container .prev-article .img-wrap {
-  display: block;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-
-#section-3 .container .prev-article .img-wrap:hover img {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-#section-3 .container .prev-article .img-wrap img {
-  display: block;
-  -webkit-transition: all .3s linear;
-  transition: all .3s linear;
-}
-
-#section-3 .container .prev-article .info-article {
-  margin-bottom: 15px;
-  font-size: .8em;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  text-align: justify;
-  -moz-text-align-last: justify;
-  text-align-last: justify;
-}
-
-#section-3 .container .prev-article .info-article li {
-  list-style: none;
-  display: inline-block;
-}
-
-#section-3 .container .prev-article .title-article {
-  display: block;
-  text-decoration: none;
-  margin-bottom: 10px;
-}
-
-#section-3 .container .prev-article .describe-article {
-  margin-bottom: 7px;
+#section-3 .container .article-preview {
+  width: 370px;
 }
 
 #section-4 {
-  background: #f6f6f6;
+  background: #f6f6f6 url("../img/bg-img-2.jpg") no-repeat bottom left;
   padding: 100px 0;
 }
 
@@ -1962,43 +2077,15 @@ header .header-bottom .container nav ul li {
   padding-right: 80px;
 }
 
-#section-4 .useful-block .useful-list .useful-item {
-  list-style: none;
-  overflow: hidden;
-  margin-bottom: 50px;
-}
-
-#section-4 .useful-block .useful-list .useful-item .useful-pic {
-  width: 220px;
-  float: left;
-  margin-right: 10px;
-}
-
-#section-4 .useful-block .useful-list .useful-item .useful-pic .img-wrap {
-  display: block;
-  overflow: hidden;
-  margin-bottom: 10px;
-}
-
-#section-4 .useful-block .useful-list .useful-item .useful-pic .img-wrap:hover img {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-#section-4 .useful-block .useful-list .useful-item .useful-pic .img-wrap img {
-  display: block;
-  width: 220px;
-  height: auto;
-  -webkit-transition: all .3s linear;
-  transition: all .3s linear;
-}
-
-#section-4 .useful-block .useful-list .useful-item .useful-pic .info-article {
+#section-4 .useful-block .useful-list {
+  margin-top: -13px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
@@ -2008,21 +2095,21 @@ header .header-bottom .container nav ul li {
   text-align-last: justify;
 }
 
-#section-4 .useful-block .useful-list .useful-item .useful-pic .info-article li {
-  display: inline-block;
+#section-4 .useful-block .useful-list .useful-item {
   list-style: none;
-  font-size: .8em;
-}
-
-#section-4 .useful-block .useful-list .useful-item .title-article {
-  display: block;
-  text-decoration: none;
-  text-align: left;
-  margin-bottom: 3px;
-}
-
-#section-4 .useful-block .useful-list .useful-item .title-article h3 {
   display: inline-block;
+  padding: 13px 0;
+}
+
+#section-4 .useful-block .useful-list .useful-item .article-preview {
+  width: 340px;
+  text-align: center;
+  -moz-text-align-last: center;
+  text-align-last: center;
+}
+
+#section-4 .useful-block .useful-list .useful-item .article-preview .article-title {
+  font-size: 1.7em;
 }
 
 footer {
