@@ -50,8 +50,8 @@
 
 @font-face {
   font-family: 'fontello';
-  src: url("../fonts/fontello.eot?84848640");
-  src: url("../fonts/fontello.eot?84848640#iefix") format("embedded-opentype"), url("../fonts/fontello.woff2?84848640") format("woff2"), url("../fonts/fontello.woff?84848640") format("woff"), url("../fonts/fontello.ttf?84848640") format("truetype"), url("../fonts/fontello.svg?84848640#fontello") format("svg");
+  src: url("../fonts/fontello.eot?33079113");
+  src: url("../fonts/fontello.eot?33079113#iefix") format("embedded-opentype"), url("../fonts/fontello.woff2?33079113") format("woff2"), url("../fonts/fontello.woff?33079113") format("woff"), url("../fonts/fontello.ttf?33079113") format("truetype"), url("../fonts/fontello.svg?33079113#fontello") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -67,113 +67,85 @@
   width: 1em;
   margin-right: .2em;
   text-align: center;
-  /* opacity: .8; */
-  /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
-  /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
   margin-left: .2em;
-  /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
-  /* Font smoothing. That was taken from TWBS */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
 .icon-mail-alt:before {
   content: '\e800';
 }
 
-/* '' */
-
-.icon-cancel:before {
+.icon-ok:before {
   content: '\e801';
 }
 
-/* '' */
-
-.icon-ok:before {
+.icon-cancel:before {
   content: '\e802';
 }
-
-/* '' */
 
 .icon-eye:before {
   content: '\e803';
 }
 
-/* '' */
-
 .icon-chat-empty:before {
   content: '\e804';
 }
 
-/* '' */
-
-.icon-phone:before {
+.icon-location:before {
   content: '\e805';
 }
 
-/* '' */
-
-.icon-calendar:before {
+.icon-phone:before {
   content: '\e806';
 }
 
-/* '' */
-
-.icon-left-open:before {
+.icon-calendar:before {
   content: '\e807';
 }
 
-/* '' */
-
-.icon-right-open:before {
+.icon-clock:before {
   content: '\e808';
 }
 
-/* '' */
-
-.icon-paper-plane:before {
+.icon-down-open:before {
   content: '\e809';
 }
 
-/* '' */
-
-.icon-youtube:before {
+.icon-left-open:before {
   content: '\e80a';
 }
 
-/* '' */
-
-.icon-vkontakte:before {
+.icon-right-open:before {
   content: '\e80b';
 }
 
-/* '' */
-
-.icon-twitter:before {
+.icon-up-open:before {
   content: '\e80c';
 }
 
-/* '' */
-
-.icon-facebook:before {
+.icon-paper-plane:before {
   content: '\e80d';
 }
 
-/* '' */
-
-.icon-location:before {
+.icon-facebook:before {
   content: '\e80e';
 }
 
-/* '' */
+.icon-vkontakte:before {
+  content: '\e810';
+}
+
+.icon-twitter:before {
+  content: '\e811';
+}
+
+.icon-youtube:before {
+  content: '\e812';
+}
 
 /*------- Конец шрифтов -------*/
 @charset "UTF-8";
@@ -1309,6 +1281,7 @@ textarea {
 
 button {
   overflow: visible;
+  outline: none;
 }
 
 button,
@@ -2106,12 +2079,26 @@ header .header-bottom .container nav ul li {
 
 #section-3 {
   padding: 100px 0;
-  background: #fff url("../img/bg-img-1.jpg") no-repeat bottom right;
+  background: url("../img/bg-img-4.jpg") no-repeat fixed;
+  background-size: cover;
 }
 
 #section-3 .container h1 {
   text-align: center;
   margin-bottom: 100px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid #fff;
+}
+
+#section-3 .container .main-button {
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#section-3 .container .main-button:hover {
+  border: 1px solid transparent;
 }
 
 #section-3 .container .article-preview {
@@ -2158,7 +2145,7 @@ header .header-bottom .container nav ul li {
 }
 
 #section-4 {
-  background: #f6f6f6 url("../img/bg-img-2.jpg") no-repeat center left 1%;
+  background: #fff url("../img/bg-img-1.jpg") no-repeat center right;
   padding: 100px 0;
 }
 
@@ -2176,20 +2163,17 @@ header .header-bottom .container nav ul li {
 }
 
 #section-4 .news-block .news-list {
-  overflow: hidden;
+  height: 666px;
 }
 
 #section-4 .news-block .news-list .news-item {
-  list-style: none;
-}
-
-#section-4 .news-block .news-list .news-item:not(:last-child) {
-  margin-bottom: 25px;
+  height: 140px;
 }
 
 #section-4 .news-block .news-list .news-item a {
   text-decoration: none;
   color: #4d4d4d;
+  vertical-align: middle;
 }
 
 #section-4 .news-block .news-list .news-item a:hover {
@@ -2201,7 +2185,32 @@ header .header-bottom .container nav ul li {
   background: #DD370A;
   color: #fff;
   padding: 0 10px;
-  margin-bottom: 5px;
+  margin: 0 0 5px 5px;
+  -webkit-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+#section-4 .news-block .news-list .slick-arrow {
+  border: none;
+  background: transparent;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+#section-4 .news-block .news-list .slick-arrow.slick-prev {
+  top: -30px;
+}
+
+#section-4 .news-block .news-list .slick-arrow.slick-next {
+  bottom: -40px;
+}
+
+#section-4 .news-block .show-all {
+  margin-top: 83px;
 }
 
 #section-4 .useful-block {

@@ -23,17 +23,22 @@ $(document).ready(function(){
 		slidesToScroll: 2
 	});
 
-// Высота блока новостей
-	var usefulListHeight = $('#section-4 .useful-list').height();
-	$('#section-4 .news-list').height(usefulListHeight - 13);
+	$('#news-slider').slick({
+		autoplay: true,
+		autoplaySpeed: 5000,
+		prevArrow: '<button type="button" class="slick-prev"><i class="icon-up-open"></i></button>',
+		nextArrow: '<button type="button" class="slick-next"><i class="icon-down-open"></button>',
+		speed: 500,
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		vertical: true
+	});
 
 // Параллакс
-	parallaxScroll($('#section-3'), 100, 10);
-	parallaxScroll($('#section-4'), 1, 50);
+	parallaxScroll($('#section-4'), 100, 40);
 
 	$(window).on('scroll', function() {
-		parallaxScroll($('#section-3'), 100, 10);
-		parallaxScroll($('#section-4'), 1, 50);
+		parallaxScroll($('#section-4'), 100, 40);
 	});
 
 	function parallaxScroll(section, posX, speed) {
@@ -57,6 +62,12 @@ $(document).ready(function(){
 		var $this = $(this);
 
 		sliceString($this, 90, false);
+	});
+
+	$('.news-block .news-item').each(function(i) {
+		var $this = $(this);
+
+		sliceString($this, 255, true);
 	});
 
 	function sliceString(element, count, light) {
