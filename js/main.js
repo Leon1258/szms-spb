@@ -7,7 +7,7 @@ $(document).ready(function(){
 		autoplay: true,
 		autoplaySpeed: 7000,
 		prevArrow: '<button type="button" class="slick-prev"><i class="icon-left-open"></i></button>',
-		nextArrow: '<button type="button" class="slick-next"><i class="icon-right-open"></button>',
+		nextArrow: '<button type="button" class="slick-next"><i class="icon-right-open"></i></button>',
 		dots: true,
 		speed: 500
 	});
@@ -16,7 +16,7 @@ $(document).ready(function(){
 		autoplay: true,
 		autoplaySpeed: 5000,
 		prevArrow: '<button type="button" class="slick-prev"><i class="icon-left-open"></i></button>',
-		nextArrow: '<button type="button" class="slick-next"><i class="icon-right-open"></button>',
+		nextArrow: '<button type="button" class="slick-next"><i class="icon-right-open"></i></button>',
 		speed: 500,
 		centerPadding: '0px',
 		slidesToShow: 3,
@@ -27,7 +27,7 @@ $(document).ready(function(){
 		autoplay: true,
 		autoplaySpeed: 5000,
 		prevArrow: '<button type="button" class="slick-prev"><i class="icon-up-open"></i></button>',
-		nextArrow: '<button type="button" class="slick-next"><i class="icon-down-open"></button>',
+		nextArrow: '<button type="button" class="slick-next"><i class="icon-down-open"></i></button>',
 		speed: 500,
 		slidesToShow: 5,
 		slidesToScroll: 1,
@@ -96,4 +96,24 @@ $(document).ready(function(){
 			element.html(newText);
 		}
 	}
+
+// Ввод телефона
+	$('.phone-number').on('focus', function(){
+
+		$(this).inputmask({
+			"clearMaskOnLostFocus": true,
+			"mask":"+7(999)-999-99-99",
+			"clearIncomplete": true
+		});
+	});
+
+// Вид селекта
+	$('select').selectify({
+		duration: 300,
+		autoWidth: false,
+		btnText: '',
+		classes: {
+			btn: 'sl-button icon-arr'
+		}
+	});
 });
