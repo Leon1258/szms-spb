@@ -25,7 +25,7 @@
 		<header>
 			<div class="header-top">
 				<div class="container">
-					<a href="#"><i class="icon-phone"></i>Заказать звонок</a>
+					<a href="#" id="call-me-link"><i class="icon-phone"></i>Заказать звонок</a>
 
 					<form action="" method="get" id="search-form">
 						<input type="submit" name="submit" value="">
@@ -577,5 +577,22 @@
 				</div>
 			</div>
 		</footer>
+		<div class="pop-up call-me">
+			<div class="pop-up-back"></div>
+			<div class="pop-up-front">
+				<a href="#" class="close-pop-up"><i class="icon-cancel"></i></a>
+				<form action="/" id="call-me-form">
+					<div class="field-wrap">
+						<input type="text" name="name" id="call-me-name" placeholder="Ваше имя" required>
+					</div>
+					<div class="field-wrap">
+						<input type="text" name="phone" id="call-me-phone" class="phone-number" placeholder="Номер телефона" required>
+					</div>
+					<div class="show-all">
+						<button type="submit" name="submit" id="call-me-submit" class="main-button">Отправить</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>

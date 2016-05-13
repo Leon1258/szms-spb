@@ -31,7 +31,16 @@ $(document).ready(function(){
 		speed: 500,
 		slidesToShow: 5,
 		slidesToScroll: 1,
-		vertical: true
+		vertical: true,
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 4,
+					autoplay: true
+				}
+			}
+		]
 	});
 
 // Параллакс
@@ -116,4 +125,25 @@ $(document).ready(function(){
 			btn: 'sl-button icon-arr'
 		}
 	});
+
+// Заказать звонок
+	$('#call-me-link').on('click', function(e) {
+		e.preventDefault();
+
+		$('.call-me').show();
+		$('html, body').css({
+			'height' : '100%',
+			'overflow' : 'hidden'
+		});
+	});
+
+	$('.pop-up-back, .close-pop-up').on('click', function(e) {
+		e.preventDefault();
+
+		$(this).closest('.pop-up').hide();
+		$('html, body').css({
+			'height' : '',
+			'overflow' : ''
+		});
+	})
 });
