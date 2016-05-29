@@ -51,7 +51,7 @@ $(document).ready(function(){
 					});
 
 				// Параллакс
-					that.parallaxScroll($('#section-4'), 100, 40, fromTop);
+					that.parallaxScroll($('#section-4'), 100, 40);
 
 				// Прокрутка окна
 					$window.on('scroll', function() {
